@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="86" height="36" viewBox="0 0 86 36" role="img" aria-labelledby="title desc">
+  <title id="title">Expo</title>
+  <desc id="desc">Expo technology badge, styled for the FoXs GitHub profile.</desc>
+  <defs>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".08"/>
+      <stop offset=".55" stop-color="#FFFFFF" stop-opacity=".025"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x=".5" y=".5" width="85" height="35" rx="8" fill="#111923" stroke="#334451"/>
+  <rect x="1" y="1" width="84" height="34" rx="7.5" fill="url(#shine)"/>
+  <rect x="7" y="6" width="24" height="24" rx="6" fill="#EDF5F7" fill-opacity=".12"/>
+  <g transform="translate(10 9) scale(.75)" fill="#EDF5F7"><path d="M0 20.084c.043.53.23 1.063.718 1.778.58.849 1.576 1.315 2.303.567.49-.505 5.794-9.776 8.35-13.29a.761.761 0 011.248 0c2.556 3.514 7.86 12.785 8.35 13.29.727.748 1.723.282 2.303-.567.57-.835.728-1.42.728-2.046 0-.426-8.26-15.798-9.092-17.078-.8-1.23-1.044-1.498-2.397-1.542h-1.032c-1.353.044-1.597.311-2.398 1.542C8.267 3.991.33 18.758 0 19.77Z"/></g>
+  <text x="39" y="22.3" fill="#EDF5F7" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" letter-spacing=".12">Expo</text>
+</svg>
