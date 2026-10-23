@@ -1,17 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="520" height="248" viewBox="0 0 520 248" fill="none" role="img" aria-labelledby="title desc">
-  <title id="title">Hi, I'm Alisher — Fullstack &amp; Mobile Developer</title>
-  <desc id="desc">FoXs1953. Web, mobile and maps. Copper fox emblem on graphite.</desc>
-  <defs>
-    <linearGradient id="bg" x2="520" y2="248" gradientUnits="userSpaceOnUse"><stop stop-color="#17222D"/><stop offset="1" stop-color="#0D141D"/></linearGradient>
-  </defs>
-  <rect x=".5" y=".5" width="519" height="247" rx="16" fill="url(#bg)" stroke="#3A4B58"/>
-  <text x="26" y="36" fill="#94B7C3" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" letter-spacing="2">FOXS1953</text>
-  <text x="25" y="105" fill="#F1F5F7" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="700" letter-spacing="-1.5">Hi, I'm Alisher.</text>
-  <text x="27" y="144" fill="#B3C3CE" font-family="Segoe UI, Arial, sans-serif" font-size="20">Fullstack &amp; Mobile Developer</text>
-  <path d="M27 176H493" stroke="#34434F"/>
-  <text x="27" y="213" fill="#8CBCC7" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" letter-spacing="1.2">WEB · MOBILE · MAPS</text>
-  <g transform="translate(407 15) scale(.33)" stroke="#E6B58D" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M0 0L57 34L114 0L103 84L57 132L11 84ZM0 0L22 63L57 93L92 63L114 0M11 84L22 63L57 34L92 63L103 84M57 93V132"/>
-    <path d="M27 77L39 83M75 83L87 77"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="180" viewBox="0 0 520 180" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Alisher, fullstack &amp; mobile dev · Astana</title>
+  <style>
+    .eye { animation: blink 7s infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes blink { 0%, 91%, 97%, 100% { transform: scaleY(1); } 94% { transform: scaleY(.15); } }
+    @media (prefers-reduced-motion: reduce) { .eye { animation: none; } }
+  </style>
+  <clipPath id="frame"><rect width="520" height="180" rx="12"/></clipPath>
+  <g clip-path="url(#frame)">
+  <rect width="520" height="180" fill="#121821"/>
+  <text x="28" y="92" fill="#EEF2F5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="-1">Alisher</text>
+  <text x="30" y="130" fill="#93A1AD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20">fullstack &amp; mobile dev · Astana</text>
+  <g shape-rendering="crispEdges">
+    <rect x="406" y="84" width="6" height="6" fill="#E9813A"/>
+    <rect x="484" y="84" width="6" height="6" fill="#E9813A"/>
+    <rect x="406" y="90" width="12" height="6" fill="#E9813A"/>
+    <rect x="478" y="90" width="12" height="6" fill="#E9813A"/>
+    <rect x="406" y="96" width="6" height="6" fill="#E9813A"/>
+    <rect x="412" y="96" width="6" height="6" fill="#9C4318"/>
+    <rect x="418" y="96" width="6" height="6" fill="#E9813A"/>
+    <rect x="472" y="96" width="6" height="6" fill="#E9813A"/>
+    <rect x="478" y="96" width="6" height="6" fill="#9C4318"/>
+    <rect x="484" y="96" width="6" height="6" fill="#E9813A"/>
+    <rect x="406" y="102" width="6" height="6" fill="#E9813A"/>
+    <rect x="412" y="102" width="12" height="6" fill="#9C4318"/>
+    <rect x="424" y="102" width="6" height="6" fill="#E9813A"/>
+    <rect x="466" y="102" width="6" height="6" fill="#E9813A"/>
+    <rect x="472" y="102" width="12" height="6" fill="#9C4318"/>
+    <rect x="484" y="102" width="6" height="6" fill="#E9813A"/>
+    <rect x="406" y="108" width="6" height="6" fill="#E9813A"/>
+    <rect x="412" y="108" width="12" height="6" fill="#9C4318"/>
+    <rect x="424" y="108" width="48" height="6" fill="#E9813A"/>
+    <rect x="472" y="108" width="12" height="6" fill="#9C4318"/>
+    <rect x="484" y="108" width="6" height="6" fill="#E9813A"/>
+    <rect x="406" y="114" width="84" height="6" fill="#E9813A"/>
+    <rect x="400" y="120" width="96" height="6" fill="#E9813A"/>
+    <rect x="400" y="126" width="96" height="6" fill="#E9813A"/>
+    <rect x="400" y="132" width="96" height="6" fill="#E9813A"/>
+    <rect x="400" y="138" width="12" height="6" fill="#F3E9DD"/>
+    <rect x="412" y="138" width="72" height="6" fill="#E9813A"/>
+    <rect x="484" y="138" width="12" height="6" fill="#F3E9DD"/>
+    <rect x="406" y="144" width="18" height="6" fill="#F3E9DD"/>
+    <rect x="424" y="144" width="48" height="6" fill="#E9813A"/>
+    <rect x="472" y="144" width="18" height="6" fill="#F3E9DD"/>
+    <rect x="412" y="150" width="24" height="6" fill="#F3E9DD"/>
+    <rect x="436" y="150" width="24" height="6" fill="#E9813A"/>
+    <rect x="460" y="150" width="24" height="6" fill="#F3E9DD"/>
+    <rect x="418" y="156" width="60" height="6" fill="#F3E9DD"/>
+    <rect x="424" y="162" width="48" height="6" fill="#F3E9DD"/>
+    <rect x="430" y="168" width="36" height="6" fill="#F3E9DD"/>
+    <rect x="436" y="174" width="6" height="6" fill="#F3E9DD"/>
+    <rect x="442" y="174" width="12" height="6" fill="#1A1410"/>
+    <rect x="454" y="174" width="6" height="6" fill="#F3E9DD"/>
+    <rect class="eye" x="424" y="126" width="6" height="12" fill="#1A1410"/>
+    <rect class="eye" x="466" y="126" width="6" height="12" fill="#1A1410"/>
+  </g>
   </g>
 </svg>

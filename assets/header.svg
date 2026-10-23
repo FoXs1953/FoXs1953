@@ -1,40 +1,58 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="248" viewBox="0 0 960 248" fill="none" role="img" aria-labelledby="title desc">
-  <title id="title">Hi, I'm Alisher — Fullstack &amp; Mobile Developer</title>
-  <desc id="desc">FoXs1953. Web, mobile and maps. A graphite banner with a copper geometric fox and fine route lines.</desc>
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="960" y2="248" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#17222D"/><stop offset="1" stop-color="#0D141D"/>
-    </linearGradient>
-    <linearGradient id="edge" x1="0" y1="0" x2="960" y2="248" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#53616C"/><stop offset=".5" stop-color="#26343F"/><stop offset="1" stop-color="#44515B"/>
-    </linearGradient>
-    <linearGradient id="fox" x1="711" y1="45" x2="863" y2="202" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F1C8A2"/><stop offset="1" stop-color="#CC8F62"/>
-    </linearGradient>
-    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r=".7" fill="#758C9B" opacity=".15"/>
-    </pattern>
-  </defs>
-  <rect x=".5" y=".5" width="959" height="247" rx="18" fill="url(#bg)" stroke="url(#edge)"/>
-  <rect x="620" y="16" width="320" height="216" rx="14" fill="url(#grid)"/>
-  <path d="M0 1H943" stroke="white" stroke-opacity=".04"/>
-  <path d="M640 247V218Q640 210 648 210H684Q692 210 692 202V181M894 1V32Q894 40 886 40H872Q864 40 864 48V65" stroke="#688C9C" stroke-opacity=".3"/>
-  <circle cx="692" cy="181" r="3" fill="#91C4CC"/>
-  <circle cx="864" cy="65" r="3" fill="#91C4CC"/>
-  <text x="40" y="42" fill="#94B7C3" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" letter-spacing="2.2">FOXS1953</text>
-  <text x="39" y="113" fill="#F1F5F7" font-family="Segoe UI, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="-1.8">Hi, I'm Alisher.</text>
-  <text x="41" y="150" fill="#B3C3CE" font-family="Segoe UI, Arial, sans-serif" font-size="20" letter-spacing=".1">Fullstack &amp; Mobile Developer</text>
-  <path d="M41 179H567" stroke="#34434F"/>
-  <text x="41" y="210" fill="#8CBCC7" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" letter-spacing="1.5">WEB</text>
-  <circle cx="91" cy="206" r="2" fill="#566674"/>
-  <text x="110" y="210" fill="#8CBCC7" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" letter-spacing="1.5">MOBILE</text>
-  <circle cx="186" cy="206" r="2" fill="#566674"/>
-  <text x="205" y="210" fill="#8CBCC7" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" letter-spacing="1.5">MAPS</text>
-  <g stroke="url(#fox)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M717 58L774 92L831 58L820 142L774 190L728 142Z" fill="#D99E70" fill-opacity=".035"/>
-    <path d="M717 58L739 121L774 151L809 121L831 58M728 142L739 121L774 92L809 121L820 142M774 151V190"/>
-    <path d="M744 135L756 141M792 141L804 135" stroke-width="3.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="200" viewBox="0 0 960 200" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Alisher, fullstack &amp; mobile developer · Astana</title>
+  <style>
+    .eye { animation: blink 7s infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes blink { 0%, 91%, 97%, 100% { transform: scaleY(1); } 94% { transform: scaleY(.15); } }
+    @media (prefers-reduced-motion: reduce) { .eye { animation: none; } }
+  </style>
+  <clipPath id="frame"><rect width="960" height="200" rx="12"/></clipPath>
+  <g clip-path="url(#frame)">
+  <rect width="960" height="200" fill="#121821"/>
+  <text x="48" y="104" fill="#EEF2F5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="-1">Alisher</text>
+  <text x="50" y="142" fill="#93A1AD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20">fullstack &amp; mobile developer · Astana</text>
+  <g shape-rendering="crispEdges">
+    <rect x="768" y="72" width="8" height="8" fill="#E9813A"/>
+    <rect x="872" y="72" width="8" height="8" fill="#E9813A"/>
+    <rect x="768" y="80" width="16" height="8" fill="#E9813A"/>
+    <rect x="864" y="80" width="16" height="8" fill="#E9813A"/>
+    <rect x="768" y="88" width="8" height="8" fill="#E9813A"/>
+    <rect x="776" y="88" width="8" height="8" fill="#9C4318"/>
+    <rect x="784" y="88" width="8" height="8" fill="#E9813A"/>
+    <rect x="856" y="88" width="8" height="8" fill="#E9813A"/>
+    <rect x="864" y="88" width="8" height="8" fill="#9C4318"/>
+    <rect x="872" y="88" width="8" height="8" fill="#E9813A"/>
+    <rect x="768" y="96" width="8" height="8" fill="#E9813A"/>
+    <rect x="776" y="96" width="16" height="8" fill="#9C4318"/>
+    <rect x="792" y="96" width="8" height="8" fill="#E9813A"/>
+    <rect x="848" y="96" width="8" height="8" fill="#E9813A"/>
+    <rect x="856" y="96" width="16" height="8" fill="#9C4318"/>
+    <rect x="872" y="96" width="8" height="8" fill="#E9813A"/>
+    <rect x="768" y="104" width="8" height="8" fill="#E9813A"/>
+    <rect x="776" y="104" width="16" height="8" fill="#9C4318"/>
+    <rect x="792" y="104" width="64" height="8" fill="#E9813A"/>
+    <rect x="856" y="104" width="16" height="8" fill="#9C4318"/>
+    <rect x="872" y="104" width="8" height="8" fill="#E9813A"/>
+    <rect x="768" y="112" width="112" height="8" fill="#E9813A"/>
+    <rect x="760" y="120" width="128" height="8" fill="#E9813A"/>
+    <rect x="760" y="128" width="128" height="8" fill="#E9813A"/>
+    <rect x="760" y="136" width="128" height="8" fill="#E9813A"/>
+    <rect x="760" y="144" width="16" height="8" fill="#F3E9DD"/>
+    <rect x="776" y="144" width="96" height="8" fill="#E9813A"/>
+    <rect x="872" y="144" width="16" height="8" fill="#F3E9DD"/>
+    <rect x="768" y="152" width="24" height="8" fill="#F3E9DD"/>
+    <rect x="792" y="152" width="64" height="8" fill="#E9813A"/>
+    <rect x="856" y="152" width="24" height="8" fill="#F3E9DD"/>
+    <rect x="776" y="160" width="32" height="8" fill="#F3E9DD"/>
+    <rect x="808" y="160" width="32" height="8" fill="#E9813A"/>
+    <rect x="840" y="160" width="32" height="8" fill="#F3E9DD"/>
+    <rect x="784" y="168" width="80" height="8" fill="#F3E9DD"/>
+    <rect x="792" y="176" width="64" height="8" fill="#F3E9DD"/>
+    <rect x="800" y="184" width="48" height="8" fill="#F3E9DD"/>
+    <rect x="808" y="192" width="8" height="8" fill="#F3E9DD"/>
+    <rect x="816" y="192" width="16" height="8" fill="#1A1410"/>
+    <rect x="832" y="192" width="8" height="8" fill="#F3E9DD"/>
+    <rect class="eye" x="792" y="128" width="8" height="16" fill="#1A1410"/>
+    <rect class="eye" x="848" y="128" width="8" height="16" fill="#1A1410"/>
   </g>
-  <path d="M767 155H781L774 163Z" fill="#E7B58E"/>
-  <text x="774" y="219" text-anchor="middle" fill="#8E9DAA" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="10" letter-spacing="2">BUILD. SHIP. LEARN.</text>
+  </g>
 </svg>

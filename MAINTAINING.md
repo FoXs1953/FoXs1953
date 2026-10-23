@@ -1,22 +1,11 @@
-# Updating this profile
+# Notes
 
-`README.md` is displayed on [github.com/FoXs1953](https://github.com/FoXs1953) by the public `FoXs1953/FoXs1953` repository.
-
-## Content
-
-Edit the README to change the introduction, project links or technologies. Keep the main stack focused on tools used in application code. Additional languages and experiments live in the expandable section. Team projects should retain their team attribution.
-
-## Visual assets
-
-- `assets/header.svg` — desktop banner.
-- `assets/header-mobile.svg` — compact banner, selected by the README's `<picture>` element below 600px.
-- `assets/stack/` — individual, locally hosted vector badges. Each badge links to the technology's documentation.
-- `tools/generate_badges.py` — regenerate the badge SVGs with Python 3. It uses stored icon paths and requires no network or third-party Python packages.
+- `README.md` is what shows up on [github.com/FoXs1953](https://github.com/FoXs1953).
+- `assets/header.svg` is the banner, `assets/header-mobile.svg` is the narrow one GitHub shows under 600px. The text in both is plain SVG `<text>`, so it's easy to edit by hand.
+- `assets/stack/` has the stack badges. To add or change one, edit `BADGES` in `tools/generate_badges.py` and run:
 
 ```sh
 python3 tools/generate_badges.py
 ```
 
-The graphite backgrounds keep the badges readable in GitHub's light and dark themes. Separate images wrap naturally on narrow screens. GitHub renders the assets without JavaScript, inline page CSS, external image services or API tokens.
-
-Technology logo sources and attribution are in `assets/stack/NOTICE.md`. The header and badge frame are custom artwork.
+Badges switch between dark and light colors with the viewer's theme. Logo credits are in `assets/stack/NOTICE.md`.

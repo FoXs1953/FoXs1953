@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="91" height="36" viewBox="0 0 91 36" role="img" aria-labelledby="title desc">
-  <title id="title">AppKit</title>
-  <desc id="desc">AppKit technology badge, styled for the FoXs GitHub profile.</desc>
-  <defs>
-    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".08"/>
-      <stop offset=".55" stop-color="#FFFFFF" stop-opacity=".025"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <rect x=".5" y=".5" width="90" height="35" rx="8" fill="#111923" stroke="#334451"/>
-  <rect x="1" y="1" width="89" height="34" rx="7.5" fill="url(#shine)"/>
-  <rect x="7" y="6" width="24" height="24" rx="6" fill="#C4D8E5" fill-opacity=".12"/>
-  <text x="19" y="22.2" text-anchor="middle" fill="#C4D8E5" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700">Ak</text>
-  <text x="39" y="22.3" fill="#EDF5F7" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" letter-spacing=".12">AppKit</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="81" height="28" viewBox="0 0 81 28" role="img" aria-label="AppKit">
+  <title>AppKit</title>
+  <style>
+    .bg { fill: #161B22; stroke: #30363D; }
+    .tx { fill: #E6EDF3; }
+    .ic { fill: #E6EDF3; }
+    @media (prefers-color-scheme: light) {
+      .bg { fill: #F6F8FA; stroke: #D1D9E0; }
+      .tx { fill: #1F2328; }
+      .ic { fill: #1F2328; }
+    }
+  </style>
+  <rect class="bg" x=".5" y=".5" width="80" height="27" rx="6"/>
+  <g class="ic" transform="translate(10 7.0) scale(0.5833)"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></g>
+  <text class="tx" x="31" y="18.2" textLength="39.1" lengthAdjust="spacing" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="500">AppKit</text>
 </svg>

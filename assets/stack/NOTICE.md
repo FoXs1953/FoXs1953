@@ -1,14 +1,8 @@
-# Logo attribution
+# Logo credits
 
-The SVG paths in these badges are from [Simple Icons](https://github.com/simple-icons/simple-icons),
-revision `90bd1f3e7b77851fd0c56474f6fa43b816babdab`, distributed under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
-The original brand marks remain the property of their respective owners. Their inclusion identifies technologies;
-it does not imply endorsement. Accent colors were adjusted for readability on the badge background.
-
-React Native uses the React mark. AppKit uses an original **Ak** text monogram because Simple Icons does not provide an AppKit mark.
-All other technology marks are embedded vector paths. The badges have no remote dependencies.
-
-## Vendored icons
+Logos come from [Simple Icons](https://github.com/simple-icons/simple-icons) (revision `90bd1f3e7b77851fd0c56474f6fa43b816babdab`,
+plus `apple` from 13.21.0), licensed [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+The marks belong to their owners and are only here to name the tools I use. Colors are tweaked to read on both GitHub themes.
 
 - [cloudflareworkers](https://github.com/simple-icons/simple-icons/blob/90bd1f3e7b77851fd0c56474f6fa43b816babdab/icons/cloudflareworkers.svg)
 - [expo](https://github.com/simple-icons/simple-icons/blob/90bd1f3e7b77851fd0c56474f6fa43b816babdab/icons/expo.svg)
@@ -31,8 +25,4 @@ All other technology marks are embedded vector paths. The badges have no remote 
 - [tailwindcss](https://github.com/simple-icons/simple-icons/blob/90bd1f3e7b77851fd0c56474f6fa43b816babdab/icons/tailwindcss.svg)
 - [typescript](https://github.com/simple-icons/simple-icons/blob/90bd1f3e7b77851fd0c56474f6fa43b816babdab/icons/typescript.svg)
 - [vite](https://github.com/simple-icons/simple-icons/blob/90bd1f3e7b77851fd0c56474f6fa43b816babdab/icons/vite.svg)
-
-## Regenerate
-
-Run `python3 profile/tools/generate_badges.py` from the repository root. Python's standard library is sufficient; no network request is made.
-Each badge has a natural height of 36 pixels and is intended to be displayed at 32 pixels high in the profile README.
+- [apple](https://github.com/simple-icons/simple-icons/blob/13.21.0/icons/apple.svg) (used for AppKit)

@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Generate the FoXs GitHub profile's self-contained SVG technology badges.
+"""Generates the stack badges in assets/stack/.
 
-Run from any directory: python3 profile/tools/generate_badges.py
-Python's standard library is sufficient. Icon paths are vendored below so
-regeneration is deterministic and does not require a network connection.
+    python3 tools/generate_badges.py
+
+Icons are Simple Icons paths (CC0), copied in below so this runs offline
+with plain Python 3.
 """
 from __future__ import annotations
 
 import json
-import math
 from pathlib import Path
 from xml.etree import ElementTree as ET
 from xml.sax.saxutils import escape
@@ -16,8 +16,7 @@ from xml.sax.saxutils import escape
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets" / "stack"
 SIMPLE_ICONS_REVISION = "90bd1f3e7b77851fd0c56474f6fa43b816babdab"
-# Simple Icons, CC0 1.0. Original marks remain their respective owners' property.
-# React Native intentionally shares the React mark. AppKit uses a text monogram.
+# React Native uses the React mark, AppKit uses the Apple mark (Simple Icons 13.21.0).
 ICON_PATHS = {
     "typescript": [
         "M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"
@@ -81,129 +80,124 @@ ICON_PATHS = {
     ],
     "git": [
         "M13.09 23.549a1.54 1.54 0 0 1-2.18 0L.451 13.089a1.54 1.54 0 0 1 0-2.179l7.191-7.19 2.733 2.733a1.85 1.85 0 0 0 .964 2.326v6.66a1.849 1.849 0 1 0 1.54 0V8.957l2.508 2.508a1.85 1.85 0 1 0 1.09-1.09l-2.634-2.634a1.85 1.85 0 0 0-2.378-2.377L8.73 2.63 10.91.451a1.54 1.54 0 0 1 2.179 0l10.459 10.46a1.54 1.54 0 0 1 0 2.179z"
-    ]
+    ],
+    "apple": [
+        "M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"
+    ],
 }
 
-# slug, label, icon slug (None = monogram), accent, official documentation URL
+# slug, label, icon, icon color on dark, icon color on light, docs
 BADGES = [
-    ("typescript", "TypeScript", "typescript", "#68A7FF", "https://www.typescriptlang.org/docs/"),
-    ("javascript", "JavaScript", "javascript", "#F7DF1E", "https://developer.mozilla.org/en-US/docs/Web/JavaScript"),
-    ("react", "React", "react", "#61DAFB", "https://react.dev/"),
-    ("react-native", "React Native", "react", "#61DAFB", "https://reactnative.dev/"),
-    ("expo", "Expo", "expo", "#EDF5F7", "https://docs.expo.dev/"),
-    ("vite", "Vite", "vite", "#B39BFF", "https://vite.dev/guide/"),
-    ("tailwindcss", "Tailwind CSS", "tailwindcss", "#38BDF8", "https://tailwindcss.com/docs"),
-    ("nodejs", "Node.js", "nodedotjs", "#7BC862", "https://nodejs.org/docs/latest/api/"),
-    ("express", "Express", "express", "#EDF5F7", "https://expressjs.com/"),
-    ("firebase", "Firebase", "firebase", "#FFC94A", "https://firebase.google.com/docs"),
-    ("postgresql", "PostgreSQL", "postgresql", "#8CBBD9", "https://www.postgresql.org/docs/"),
-    ("prisma", "Prisma", "prisma", "#C4D8E5", "https://www.prisma.io/docs"),
-    ("supabase", "Supabase", "supabase", "#3ECF8E", "https://supabase.com/docs"),
-    ("maplibre", "MapLibre", "maplibre", "#8ECB87", "https://maplibre.org/"),
-    ("cloudflare-workers", "Cloudflare Workers", "cloudflareworkers", "#F6A43C", "https://developers.cloudflare.com/workers/"),
-    ("google-gemini", "Gemini API", "googlegemini", "#9BB7FF", "https://ai.google.dev/gemini-api/docs"),
-    ("swift", "Swift", "swift", "#FA946E", "https://www.swift.org/documentation/"),
-    ("appkit", "AppKit", None, "#C4D8E5", "https://developer.apple.com/documentation/appkit"),
-    ("luau", "Luau", "luau", "#8BAAFF", "https://luau.org/"),
-    ("roblox-studio", "Roblox Studio", "robloxstudio", "#66B9FF", "https://create.roblox.com/docs/studio"),
-    ("python", "Python", "python", "#97C5ED", "https://docs.python.org/3/"),
-    ("pine-script", "Pine Script", "pinescript", "#65CCE8", "https://www.tradingview.com/pine-script-docs/"),
-    ("git", "Git", "git", "#F9755D", "https://git-scm.com/doc"),
+    ("typescript", "TypeScript", "typescript", "#4E94E3", "#3178C6", "https://www.typescriptlang.org/docs/"),
+    ("javascript", "JavaScript", "javascript", "#F7DF1E", "#E5C700", "https://developer.mozilla.org/en-US/docs/Web/JavaScript"),
+    ("react", "React", "react", "#61DAFB", "#087EA4", "https://react.dev/"),
+    ("react-native", "React Native", "react", "#61DAFB", "#087EA4", "https://reactnative.dev/"),
+    ("expo", "Expo", "expo", "#E6EDF3", "#1F2328", "https://docs.expo.dev/"),
+    ("vite", "Vite", "vite", "#A78BFA", "#646CFF", "https://vite.dev/guide/"),
+    ("tailwindcss", "Tailwind CSS", "tailwindcss", "#38BDF8", "#0EA5E9", "https://tailwindcss.com/docs"),
+    ("nodejs", "Node.js", "nodedotjs", "#6CC24A", "#3C873A", "https://nodejs.org/docs/latest/api/"),
+    ("express", "Express", "express", "#E6EDF3", "#1F2328", "https://expressjs.com/"),
+    ("firebase", "Firebase", "firebase", "#FFCA28", "#F57C00", "https://firebase.google.com/docs"),
+    ("postgresql", "PostgreSQL", "postgresql", "#6FA6D6", "#336791", "https://www.postgresql.org/docs/"),
+    ("prisma", "Prisma", "prisma", "#E6EDF3", "#2D3748", "https://www.prisma.io/docs"),
+    ("supabase", "Supabase", "supabase", "#3ECF8E", "#24B47E", "https://supabase.com/docs"),
+    ("maplibre", "MapLibre", "maplibre", "#6D9EE8", "#396CB2", "https://maplibre.org/"),
+    ("cloudflare-workers", "Cloudflare Workers", "cloudflareworkers", "#F6821F", "#F38020", "https://developers.cloudflare.com/workers/"),
+    ("google-gemini", "Gemini API", "googlegemini", "#A8B4FF", "#6E5BD8", "https://ai.google.dev/gemini-api/docs"),
+    ("swift", "Swift", "swift", "#F8734D", "#F05138", "https://www.swift.org/documentation/"),
+    ("appkit", "AppKit", "apple", "#E6EDF3", "#1F2328", "https://developer.apple.com/documentation/appkit"),
+    ("luau", "Luau", "luau", "#4FB2FF", "#0088DD", "https://luau.org/"),
+    ("roblox-studio", "Roblox Studio", "robloxstudio", "#4FB2FF", "#0088DD", "https://create.roblox.com/docs/studio"),
+    ("python", "Python", "python", "#FFD43B", "#3776AB", "https://docs.python.org/3/"),
+    ("pine-script", "Pine Script", "pinescript", "#2BD17E", "#00A34A", "https://www.tradingview.com/pine-script-docs/"),
+    ("git", "Git", "git", "#F1502F", "#F05032", "https://git-scm.com/doc"),
 ]
 
+# Label widths at 12px / weight 500 in the system UI font. textLength pins them,
+# so padding stays even when another OS falls back to a different font.
+# New labels without an entry get a rough estimate.
+TEXT_WIDTH = {
+    "TypeScript": 62.8, "JavaScript": 61.0, "React": 33.0, "React Native": 73.2,
+    "Expo": 28.4, "Vite": 22.9, "Tailwind CSS": 74.6, "Node.js": 44.1,
+    "Express": 45.6, "Firebase": 49.4, "PostgreSQL": 68.8, "Prisma": 39.6,
+    "Supabase": 56.9, "MapLibre": 54.0, "Cloudflare Workers": 110.8,
+    "Gemini API": 62.9, "Swift": 29.6, "AppKit": 39.1, "Luau": 28.0,
+    "Roblox Studio": 79.8, "Python": 40.9, "Pine Script": 62.9, "Git": 16.7,
+}
 
-def label_width(label: str) -> float:
-    """A generous advance estimate for common 12px semibold sans-serif fonts."""
-    total = 0.0
-    for char in label:
-        if char in " ilIjt.,:;!|'":
-            total += 3.8
-        elif char in "fr()":
-            total += 4.8
-        elif char in "mwMW@%":
-            total += 10.5
-        elif char.isupper():
-            total += 8.5
-        else:
-            total += 7.0
-    return total + max(0, len(label) - 1) * 0.12
+HEIGHT = 28
+ICON = 14
+PAD = 10
+GAP = 7
+FONT = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif"
 
 
-def make_badge(slug: str, label: str, icon: str | None, accent: str) -> tuple[str, int]:
-    width = max(86, math.ceil(39 + label_width(label) + 12))
+def make_badge(label: str, icon: str, dark: str, light: str) -> tuple[str, int]:
+    text_w = TEXT_WIDTH.get(label, round(len(label) * 6.6, 1))
+    text_x = PAD + ICON + GAP
+    width = round(text_x + text_w + PAD + 1)
+    scale = ICON / 24
+    top = (HEIGHT - ICON) / 2
+    paths = "".join(f'<path d="{escape(p)}"/>' for p in ICON_PATHS[icon])
+    # JS and TS logos are squares with the letters cut out; keep the letters dark.
+    backing = ""
+    if icon == "javascript":
+        backing = f'<rect x="{PAD + 1}" y="{top + 1}" width="{ICON - 2}" height="{ICON - 2}" fill="#1F2328"/>'
     name = escape(label)
-    description = escape(f"{label} technology badge, styled for the FoXs GitHub profile.")
-    if icon:
-        paths = "".join(f'<path d="{escape(path)}"/>' for path in ICON_PATHS[icon])
-        mark = f'<g transform="translate(10 9) scale(.75)" fill="{accent}">{paths}</g>'
-    else:
-        mark = (
-            f'<text x="19" y="22.2" text-anchor="middle" fill="{accent}" '
-            'font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700">Ak</text>'
-        )
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="36" viewBox="0 0 {width} 36" role="img" aria-labelledby="title desc">
-  <title id="title">{name}</title>
-  <desc id="desc">{description}</desc>
-  <defs>
-    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".08"/>
-      <stop offset=".55" stop-color="#FFFFFF" stop-opacity=".025"/>
-      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-  <rect x=".5" y=".5" width="{width - 1}" height="35" rx="8" fill="#111923" stroke="#334451"/>
-  <rect x="1" y="1" width="{width - 2}" height="34" rx="7.5" fill="url(#shine)"/>
-  <rect x="7" y="6" width="24" height="24" rx="6" fill="{accent}" fill-opacity=".12"/>
-  {mark}
-  <text x="39" y="22.3" fill="#EDF5F7" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" letter-spacing=".12">{name}</text>
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{HEIGHT}" viewBox="0 0 {width} {HEIGHT}" role="img" aria-label="{name}">
+  <title>{name}</title>
+  <style>
+    .bg {{ fill: #161B22; stroke: #30363D; }}
+    .tx {{ fill: #E6EDF3; }}
+    .ic {{ fill: {dark}; }}
+    @media (prefers-color-scheme: light) {{
+      .bg {{ fill: #F6F8FA; stroke: #D1D9E0; }}
+      .tx {{ fill: #1F2328; }}
+      .ic {{ fill: {light}; }}
+    }}
+  </style>
+  <rect class="bg" x=".5" y=".5" width="{width - 1}" height="{HEIGHT - 1}" rx="6"/>
+  {backing}<g class="ic" transform="translate({PAD} {top}) scale({scale:.4f})">{paths}</g>
+  <text class="tx" x="{text_x}" y="18.2" textLength="{text_w}" lengthAdjust="spacing" font-family="{FONT}" font-size="12" font-weight="500">{name}</text>
 </svg>
 '''
     return svg, width
 
 
-def validate(svg: str, expected_width: int) -> None:
+def validate(svg: str, width: int) -> None:
     root = ET.fromstring(svg)
-    assert root.attrib["width"] == str(expected_width)
-    assert root.attrib["height"] == "36"
-    assert root.find("{http://www.w3.org/2000/svg}title") is not None
-    assert root.find("{http://www.w3.org/2000/svg}desc") is not None
+    assert root.attrib["width"] == str(width)
+    assert root.attrib["height"] == str(HEIGHT)
     for node in root.iter():
-        assert node.tag.rsplit("}", 1)[-1] not in {"script", "foreignObject", "image", "filter"}
+        assert node.tag.rsplit("}", 1)[-1] not in {"script", "foreignObject", "image"}
         assert not any(key.endswith("href") for key in node.attrib)
 
 
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     manifest = []
-    for slug, label, icon, accent, url in BADGES:
-        svg, width = make_badge(slug, label, icon, accent)
+    for slug, label, icon, dark, light, url in BADGES:
+        svg, width = make_badge(label, icon, dark, light)
         validate(svg, width)
         (OUT / f"{slug}.svg").write_text(svg, encoding="utf-8")
-        manifest.append({"slug": slug, "label": label, "width": width, "height": 36, "displayHeight": 32, "docsUrl": url, "icon": icon or "monogram:Ak"})
+        manifest.append({"slug": slug, "label": label, "width": width, "height": HEIGHT, "docsUrl": url, "icon": icon})
     (OUT / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    icon_names = sorted({icon for _, _, icon, _, _ in BADGES if icon})
-    links = "\n".join(f"- [{name}](https://github.com/simple-icons/simple-icons/blob/{SIMPLE_ICONS_REVISION}/icons/{name}.svg)" for name in icon_names)
-    notice = f'''# Logo attribution
+    icons = sorted({icon for _, _, icon, _, _, _ in BADGES if icon != "apple"})
+    links = "\n".join(
+        f"- [{name}](https://github.com/simple-icons/simple-icons/blob/{SIMPLE_ICONS_REVISION}/icons/{name}.svg)"
+        for name in icons
+    )
+    notice = f"""# Logo credits
 
-The SVG paths in these badges are from [Simple Icons](https://github.com/simple-icons/simple-icons),
-revision `{SIMPLE_ICONS_REVISION}`, distributed under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
-The original brand marks remain the property of their respective owners. Their inclusion identifies technologies;
-it does not imply endorsement. Accent colors were adjusted for readability on the badge background.
-
-React Native uses the React mark. AppKit uses an original **Ak** text monogram because Simple Icons does not provide an AppKit mark.
-All other technology marks are embedded vector paths. The badges have no remote dependencies.
-
-## Vendored icons
+Logos come from [Simple Icons](https://github.com/simple-icons/simple-icons) (revision `{SIMPLE_ICONS_REVISION}`,
+plus `apple` from 13.21.0), licensed [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+The marks belong to their owners and are only here to name the tools I use. Colors are tweaked to read on both GitHub themes.
 
 {links}
-
-## Regenerate
-
-Run `python3 profile/tools/generate_badges.py` from the repository root. Python's standard library is sufficient; no network request is made.
-Each badge has a natural height of 36 pixels and is intended to be displayed at 32 pixels high in the profile README.
-'''
+- [apple](https://github.com/simple-icons/simple-icons/blob/13.21.0/icons/apple.svg) (used for AppKit)
+"""
     (OUT / "NOTICE.md").write_text(notice, encoding="utf-8")
-    print(f"Generated and XML-validated {len(manifest)} SVG badges in {OUT}")
+    print(f"wrote {len(manifest)} badges to {OUT}")
 
 
 if __name__ == "__main__":
