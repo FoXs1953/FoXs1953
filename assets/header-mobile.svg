@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="248" viewBox="0 0 520 248" fill="none" role="img" aria-labelledby="title desc">
+  <title id="title">Hi, I'm Alisher — Fullstack &amp; Mobile Developer</title>
+  <desc id="desc">FoXs1953. Web, mobile and maps. Copper fox emblem on graphite.</desc>
+  <defs>
+    <linearGradient id="bg" x2="520" y2="248" gradientUnits="userSpaceOnUse"><stop stop-color="#17222D"/><stop offset="1" stop-color="#0D141D"/></linearGradient>
+  </defs>
+  <rect x=".5" y=".5" width="519" height="247" rx="16" fill="url(#bg)" stroke="#3A4B58"/>
+  <text x="26" y="36" fill="#94B7C3" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="12" letter-spacing="2">FOXS1953</text>
+  <text x="25" y="105" fill="#F1F5F7" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="700" letter-spacing="-1.5">Hi, I'm Alisher.</text>
+  <text x="27" y="144" fill="#B3C3CE" font-family="Segoe UI, Arial, sans-serif" font-size="20">Fullstack &amp; Mobile Developer</text>
+  <path d="M27 176H493" stroke="#34434F"/>
+  <text x="27" y="213" fill="#8CBCC7" font-family="ui-monospace, SFMono-Regular, Consolas, monospace" font-size="13" letter-spacing="1.2">WEB · MOBILE · MAPS</text>
+  <g transform="translate(407 15) scale(.33)" stroke="#E6B58D" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0L57 34L114 0L103 84L57 132L11 84ZM0 0L22 63L57 93L92 63L114 0M11 84L22 63L57 34L92 63L103 84M57 93V132"/>
+    <path d="M27 77L39 83M75 83L87 77"/>
+  </g>
+</svg>
