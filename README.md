@@ -61,6 +61,8 @@ Swift and AppKit for small macOS tools, Luau for Roblox games, Python for script
 
 ### Projects
 
+Some projects have private source code; descriptions and available demos are shared below.
+
 **Eventura**<br />
 Mobile app for booking event professionals, with chat and reviews built in.<br />
 <sub>React Native · Expo · TypeScript · Firebase · Express · Prisma</sub>
@@ -69,9 +71,29 @@ Mobile app for booking event professionals, with chat and reviews built in.<br /
 Find and join pickup games, tournaments and amateur leagues in Astana.<br />
 <sub>React · TypeScript · Tailwind CSS · PostgreSQL</sub>
 
-**[Aidem](https://github.com/FoXs1953/ascension-smartwalk)**<br />
+**[SmartWalk / Aidem](https://github.com/FoXs1953/ascension-smartwalk)**<br />
 Picks places for a walk around Astana based on how much time you have, counting the way back and opening hours. Built with team Ascension (this repo is my public copy).<br />
 <sub>JavaScript · MapLibre · Cloudflare Workers · Gemini</sub>
+
+**[Аким на 5 часов](https://github.com/FoXs1953/hack-5db21a28-astra-the-best)**<br />
+Educational city-management simulator for Astana: allocate a budget, choose five measures and compare their effects on a 3D map. Team hackathon project with synthetic data and AI explanations.<br />
+<sub>Next.js · React · TypeScript · MapLibre · OpenAI API</sub>
+
+**[Crumb Index · Shopify](https://rfmeey-y8.myshopify.com/)**<br />
+Shopify storefront for home and cleaning essentials, with custom Liquid sections, responsive product pages and cart presentation.<br />
+<sub>Shopify · Liquid · JavaScript · CSS</sub>
+
+**SecondMonitor / Монитор Mac**<br />
+Native macOS dashboard for a second display: clocks, CPU and RAM readings, process inspection and official AI news.<br />
+<sub>Swift · AppKit</sub>
+
+**[RobloxGame · После дождя / Puddle Town](https://www.roblox.com/games/87639462257965)**<br />
+Cooperative Roblox sandbox: shape streams with terrain tools, dams and gates, then guide toys and rafts to a shared pond. Expedition and free-build modes, with Russian and English UI.<br />
+<sub>Roblox Studio · Luau · Python</sub>
+
+**TradingBot / Alish**<br />
+TradingView indicator and MetaTrader 5 demo advisor, with signal analysis, risk controls and offline tests.<br />
+<sub>Pine Script · MQL5 · Python</sub>
 
 **[2oyin](https://github.com/FoXs1953/2oyin)**<br />
 Bilingual site for national and event games.<br />
@@ -83,3 +105,4 @@ Bilingual site for national and event games.<br />
 🥉 Build with AI 2026, 3rd place in AI for Smart City
 
 Both with team Ascension.
+
