@@ -67,7 +67,7 @@ Some projects have private source code; descriptions and available demos are sha
 Mobile app for booking event professionals, with chat and reviews built in.<br />
 <sub>React Native · Expo · TypeScript · Firebase · Express · Prisma</sub>
 
-**[Sportura](https://github.com/FoXs1953/Sportura/tree/dev)** · [live](https://sportura.vercel.app)<br />
+**[Sportura](https://sportura.vercel.app)**<br />
 Find and join pickup games, tournaments and amateur leagues in Astana.<br />
 <sub>React · TypeScript · Tailwind CSS · PostgreSQL</sub>
 
