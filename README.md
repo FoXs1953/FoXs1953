@@ -99,6 +99,9 @@ TradingView indicator and MetaTrader 5 demo advisor, with signal analysis, risk 
 Bilingual site for national and event games.<br />
 <sub>React · JavaScript · Vite</sub>
 
+**[Skills](https://github.com/FoXs1953/skills)**<br />
+A collection of AI agent skills I use in my work.
+
 ### Hackathons
 
 🥇 HackAlem AI 2026, 1st place in the Astana Innovations special track<br />
